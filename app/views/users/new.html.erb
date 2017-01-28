@@ -1,0 +1,7 @@
+<%= form_for(User.new) do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+  <p><%= f.submit 'sign in / sign up' %></p>
+<% end %>

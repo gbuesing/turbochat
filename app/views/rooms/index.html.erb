@@ -1,0 +1,21 @@
+<% if current_user.present? %>
+  <p>Hello, <%= current_user.name %>!</p>
+<% else %>
+  <p>Hello, World!</p>
+<% end %>
+
+<%= form_for(Room.new) do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+  <p><%= f.submit 'find / create room' %></p>
+<% end %>
+
+<p>Rooms:</p>
+
+<ul>
+  <% @rooms.each do |room| %>
+    <li><%= link_to room.name, room %></li>
+  <% end %>
+</ul>

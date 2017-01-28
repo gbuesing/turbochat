@@ -1,0 +1,8 @@
+<%= form_for [@room, Message.new] do |f| %>
+  <%= f.hidden_field :room_id, value: @room.id %>
+  <p>
+    <%= f.label :body %>
+    <%= f.text_field :body %>
+  </p>
+  <p><%= f.submit 'post message' %></p>
+<% end %>
