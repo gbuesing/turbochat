@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:new, :create, :destroy]
+
+  mount ActionCable.server => '/cable'
 end

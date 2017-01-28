@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   def create
     @message = current_user.messages.create! message_params
-    redirect_to room_path @message.room
+    ActionCable.server.broadcast "room_#{@message.room.id}", message: ApplicationController.render(@message)
   end
 
   def show
