@@ -13,8 +13,8 @@ class ApplicationController < ActionController::Base
     end
 
     def current_user
-      if cookies.permanent.signed[:user_id].present?
-        @_current_user ||= User.find cookies.permanent.signed[:user_id]
+      if cookies.signed[:user_id].present?
+        @_current_user ||= User.find_by id: cookies.signed[:user_id]
       end
     end
     helper_method :current_user
