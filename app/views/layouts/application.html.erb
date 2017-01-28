@@ -9,6 +9,13 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar bg-inverse fixed-top">
+      <a href="/">turbochat</a>
+    </nav>
+    <div class="container">
+      <div class="content">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
