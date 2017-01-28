@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		048FC75CA8FB95C41A719FF7 /* Pods_turbochat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDC07D46D33CEB45213EA62 /* Pods_turbochat.framework */; };
 		366DF5D61E3D5905001DEB83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366DF5D51E3D5905001DEB83 /* AppDelegate.swift */; };
 		366DF5D81E3D5905001DEB83 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366DF5D71E3D5905001DEB83 /* ViewController.swift */; };
 		366DF5DB1E3D5905001DEB83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 366DF5D91E3D5905001DEB83 /* Main.storyboard */; };
@@ -22,6 +23,9 @@
 		366DF5DC1E3D5905001DEB83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		366DF5DF1E3D5905001DEB83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		366DF5E11E3D5905001DEB83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3EFA7FD4947852181C7CAB0B /* Pods-turbochat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-turbochat.release.xcconfig"; path = "Pods/Target Support Files/Pods-turbochat/Pods-turbochat.release.xcconfig"; sourceTree = "<group>"; };
+		CDDC07D46D33CEB45213EA62 /* Pods_turbochat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_turbochat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6C36FA3B10D5CC1B534C241 /* Pods-turbochat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-turbochat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-turbochat/Pods-turbochat.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				048FC75CA8FB95C41A719FF7 /* Pods_turbochat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				366DF5D41E3D5905001DEB83 /* turbochat */,
 				366DF5D31E3D5905001DEB83 /* Products */,
+				61E086EB4C2D5CFBBBCFF25E /* Pods */,
+				522EF7B1221A2444A3382994 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = turbochat;
 			sourceTree = "<group>";
 		};
+		522EF7B1221A2444A3382994 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CDDC07D46D33CEB45213EA62 /* Pods_turbochat.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		61E086EB4C2D5CFBBBCFF25E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E6C36FA3B10D5CC1B534C241 /* Pods-turbochat.debug.xcconfig */,
+				3EFA7FD4947852181C7CAB0B /* Pods-turbochat.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 366DF5E41E3D5905001DEB83 /* Build configuration list for PBXNativeTarget "turbochat" */;
 			buildPhases = (
+				6149A460BEB9B8E2C5C59260 /* [CP] Check Pods Manifest.lock */,
 				366DF5CE1E3D5905001DEB83 /* Sources */,
 				366DF5CF1E3D5905001DEB83 /* Frameworks */,
 				366DF5D01E3D5905001DEB83 /* Resources */,
+				999A7EE59594654D2642E864 /* [CP] Embed Pods Frameworks */,
+				EEE43BFB20EB3AB96CAE60A9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,6 +157,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6149A460BEB9B8E2C5C59260 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		999A7EE59594654D2642E864 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-turbochat/Pods-turbochat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EEE43BFB20EB3AB96CAE60A9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-turbochat/Pods-turbochat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		366DF5CE1E3D5905001DEB83 /* Sources */ = {
@@ -260,6 +335,7 @@
 		};
 		366DF5E51E3D5905001DEB83 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6C36FA3B10D5CC1B534C241 /* Pods-turbochat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = turbochat/Info.plist;
@@ -272,6 +348,7 @@
 		};
 		366DF5E61E3D5905001DEB83 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3EFA7FD4947852181C7CAB0B /* Pods-turbochat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = turbochat/Info.plist;
