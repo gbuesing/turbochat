@@ -15,7 +15,7 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <% if current_user.present? %>
-            <%= link_to current_user.name, current_user, method: :delete, class: "nav-link" %>
+            <%= link_to "#{current_user.name} (sign out)", current_user, method: :delete, class: "nav-link" %>
           <% else %>
             <%= link_to "sign in / sign up", new_user_path, class: "nav-link" %>
           <% end %>

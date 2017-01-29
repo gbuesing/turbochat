@@ -1,5 +1,4 @@
 <%= form_for [@room, Message.new], remote: true do |f| %>
-  <%= f.hidden_field :room_id, value: @room.id %>
   <p>
     <%= f.label :body %>
     <%= f.text_field :body, data: { role: "message-body" } %>

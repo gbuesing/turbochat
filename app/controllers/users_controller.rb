@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.where(name: user_params[:name]).first_or_create!
+    @user = User.where(name: user_params[:name].downcase).first_or_create!
     cookies.permanent.signed[:user_id] = @user.id
     redirect_to root_path
   end
