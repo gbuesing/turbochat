@@ -5,6 +5,7 @@ addEventListener "turbolinks:load", ->
     App.room = App.cable.subscriptions.create { channel: "RoomChannel", room_id: room_id },
       received: (data) ->
         $("[data-role~=messages]").append(data.message)
+        window.scrollToEndOfMessages()
 
 addEventListener "turbolinks:before-cache", ->
   if App.room
