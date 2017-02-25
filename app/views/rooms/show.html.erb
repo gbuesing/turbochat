@@ -1,5 +1,16 @@
 <h2><%= @room.name %></h2>
-<%= render partial: "messages/form" %>
-<div data-role="messages" data-room-id="<%= @room.id %>">
+<%#= render partial: "messages/form" %>
+<div id="messages" data-role="messages" data-room-id="<%= @room.id %>" style="overflow: auto; padding-bottom: 80px">
   <%= render @room.messages %>
 </div>
+
+<% content_for :after_container do %>
+<nav class="navbar navbar-light bg-faded fixed-bottom">
+  <%= form_for [@room, Message.new], remote: true, html: {class: 'form-inline'} do |f| %>
+      <%= f.text_field :body, data: { role: "message-body" }, class: 
+      'form-control mr-sm-2', placeholder: "Message", style: 
+      'width: 70%; margin-right: 10px', required: true %>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Send</button>
+  <% end %>
+</nav>  
+<% end %>
