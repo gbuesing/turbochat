@@ -1,1 +1,4 @@
-<p><%= message.user.name %> said: <%= message.body %></p>
+<div class="message">
+  <div><strong><%= message.user.name %></strong> <small class="text-muted"><%= message.created_at.strftime("%l:%M %p") %></small><div>
+  <div><%= message.body %></div>
+</div>
