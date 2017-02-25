@@ -1,4 +1,4 @@
-<%= form_for(Room.new) do |f| %>
+<%= form_for(Room.new, remote: true) do |f| %>
   <p>
     <%= f.label :name %>
     <%= f.text_field :name %>
