@@ -1,7 +1,12 @@
-<%= form_for(User.new, remote: true) do |f| %>
-  <p>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </p>
-  <p><%= f.submit 'sign in / sign up' %></p>
-<% end %>
+<div class="card">
+  <div class="card-block">
+    <h4 class="card-title">Sign in</h4>
+      <%= form_for(User.new, remote: true) do |f| %>
+      <div class="form-group">
+        <%= f.label :name, "Your name" %>
+        <%= f.text_field :name, class: "form-control", required: true %>
+      </div>
+      <%= f.submit "Sign in", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

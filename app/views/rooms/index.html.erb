@@ -1,15 +1,25 @@
-<%= form_for(Room.new, remote: true) do |f| %>
-  <p>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </p>
-  <p><%= f.submit 'find / create room' %></p>
-<% end %>
+<div class="card">
+  <div class="card-block">
+    <h4 class="card-title">Chat rooms</h4>
+    <div class="list-group">
+      <% @rooms.each do |room| %>
+        <%= link_to room.name, room, class: "list-group-item list-group-item-action" %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<p>Rooms:</p>
+<br><br>
 
-<ul>
-  <% @rooms.each do |room| %>
-    <li><%= link_to room.name, room %></li>
-  <% end %>
-</ul>
+<div class="card">
+  <div class="card-block">
+    <h4 class="card-title">New chat room</h4>
+    <%= form_for(Room.new, remote: true) do |f| %>
+      <div class="form-group">
+        <%= f.label :name, "Room name" %>
+        <%= f.text_field :name, class: "form-control", required: true %>
+      </div>
+      <%= f.submit "Create", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
