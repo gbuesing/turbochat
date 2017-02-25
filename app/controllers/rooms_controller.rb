@@ -10,6 +10,7 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.preload(messages: :user).find params[:id]
+    @page_title = @room.name
   end
 
   private
