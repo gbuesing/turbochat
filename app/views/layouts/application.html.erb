@@ -23,7 +23,7 @@
           <ul class="navbar-nav">
             <li class="nav-item">
               <% if current_user.present? %>
-                <%= link_to "#{current_user.name} (sign out)", current_user, method: :delete, class: "nav-link" %>
+                <%= link_to "#{current_user.name} (sign out)", current_user, method: :delete, remote: true, class: "nav-link" %>
               <% end %>
             </li>
           </ul>
