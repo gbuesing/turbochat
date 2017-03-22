@@ -5,7 +5,13 @@ class ApplicationController < ActionController::Base
 
   private
     def require_current_user
-      redirect_to new_user_path unless current_user.present?
+      return if current_user.present?
+
+      if native_app?
+        head :unauthorized
+      else
+        redirect_to new_user_path
+      end
     end
 
     def require_no_current_user
@@ -18,4 +24,9 @@ class ApplicationController < ActionController::Base
       end
     end
     helper_method :current_user
+
+    def native_app?
+      request.user_agent =~ /Turbochat/
+    end
+    helper_method :native_app?
 end
