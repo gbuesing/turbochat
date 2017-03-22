@@ -11,6 +11,10 @@
 
 <br><br>
 
+<% if native_app? %>
+<p><small>Signed in as <%= current_user.name %> | <%= link_to "Sign out", current_user, method: :delete, remote: true, class: "" %></small></p>
+<% end %>
+
 <div class="card">
   <div class="card-block">
     <h4 class="card-title">New chat room</h4>
@@ -23,3 +27,4 @@
     <% end %>
   </div>
 </div>
+
