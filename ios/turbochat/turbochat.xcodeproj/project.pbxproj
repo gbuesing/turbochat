@@ -8,17 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		048FC75CA8FB95C41A719FF7 /* Pods_turbochat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDC07D46D33CEB45213EA62 /* Pods_turbochat.framework */; };
+		3638758D1E830EAE0058BD18 /* ApplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3638758C1E830EAE0058BD18 /* ApplicationController.swift */; };
+		3638758F1E830F140058BD18 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3638758E1E830F140058BD18 /* DemoViewController.swift */; };
+		363875911E830F290058BD18 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363875901E830F290058BD18 /* Error.swift */; };
+		363875931E830F480058BD18 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363875921E830F480058BD18 /* ErrorView.swift */; };
+		363875951E830F770058BD18 /* AuthenticationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363875941E830F770058BD18 /* AuthenticationController.swift */; };
 		366DF5D61E3D5905001DEB83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366DF5D51E3D5905001DEB83 /* AppDelegate.swift */; };
-		366DF5D81E3D5905001DEB83 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366DF5D71E3D5905001DEB83 /* ViewController.swift */; };
 		366DF5DB1E3D5905001DEB83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 366DF5D91E3D5905001DEB83 /* Main.storyboard */; };
 		366DF5DD1E3D5905001DEB83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 366DF5DC1E3D5905001DEB83 /* Assets.xcassets */; };
 		366DF5E01E3D5905001DEB83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 366DF5DE1E3D5905001DEB83 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3638758C1E830EAE0058BD18 /* ApplicationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationController.swift; sourceTree = "<group>"; };
+		3638758E1E830F140058BD18 /* DemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
+		363875901E830F290058BD18 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		363875921E830F480058BD18 /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		363875941E830F770058BD18 /* AuthenticationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationController.swift; sourceTree = "<group>"; };
 		366DF5D21E3D5905001DEB83 /* turbochat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = turbochat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		366DF5D51E3D5905001DEB83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		366DF5D71E3D5905001DEB83 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		366DF5DA1E3D5905001DEB83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		366DF5DC1E3D5905001DEB83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		366DF5DF1E3D5905001DEB83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -62,11 +70,15 @@
 			isa = PBXGroup;
 			children = (
 				366DF5D51E3D5905001DEB83 /* AppDelegate.swift */,
-				366DF5D71E3D5905001DEB83 /* ViewController.swift */,
 				366DF5D91E3D5905001DEB83 /* Main.storyboard */,
 				366DF5DC1E3D5905001DEB83 /* Assets.xcassets */,
 				366DF5DE1E3D5905001DEB83 /* LaunchScreen.storyboard */,
 				366DF5E11E3D5905001DEB83 /* Info.plist */,
+				3638758C1E830EAE0058BD18 /* ApplicationController.swift */,
+				3638758E1E830F140058BD18 /* DemoViewController.swift */,
+				363875901E830F290058BD18 /* Error.swift */,
+				363875921E830F480058BD18 /* ErrorView.swift */,
+				363875941E830F770058BD18 /* AuthenticationController.swift */,
 			);
 			path = turbochat;
 			sourceTree = "<group>";
@@ -211,8 +223,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				366DF5D81E3D5905001DEB83 /* ViewController.swift in Sources */,
+				363875951E830F770058BD18 /* AuthenticationController.swift in Sources */,
+				3638758D1E830EAE0058BD18 /* ApplicationController.swift in Sources */,
+				363875931E830F480058BD18 /* ErrorView.swift in Sources */,
 				366DF5D61E3D5905001DEB83 /* AppDelegate.swift in Sources */,
+				363875911E830F290058BD18 /* Error.swift in Sources */,
+				3638758F1E830F140058BD18 /* DemoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +394,7 @@
 				366DF5E61E3D5905001DEB83 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
