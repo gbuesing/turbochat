@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-block">
     <h4 class="card-title">Sign in</h4>
-      <%= form_for(User.new, remote: true) do |f| %>
+      <%= form_for(User.new) do |f| %>
       <div class="form-group">
         <%= f.label :name, "Your name" %>
         <%= f.text_field :name, class: "form-control", required: true, autocomplete: "off", autocorrect: "off", autocapitalize: "off", spellcheck: "false" %>
