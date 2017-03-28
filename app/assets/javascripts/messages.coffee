@@ -8,6 +8,9 @@ setMessagesContainerHeight = () ->
     return $(window).height() - 200
 
 document.addEventListener "turbolinks:load", () ->
+  if window.HTMLOUT?
+    window.HTMLOUT.jsCallback("XXX FOO BAR CALLED FROM JS")
+
   if $('#rooms-show').length
     setMessagesContainerHeight()
     scrollToEndOfMessages()
