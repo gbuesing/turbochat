@@ -3,6 +3,6 @@
     <strong><%= message.user.name %></strong> <small class="text-muted"><%= message.created_at.strftime("%l:%M %p") %></small>
   </div>
   <div>
-    <%= auto_link(message.body, html: { :target => '_blank' }) { |text| truncate(text, length: 35) }%>
+    <%= auto_link(message.body, html: { 'data-turbolinks': false }) { |text| truncate(text, length: 35) }%>
   </div>
 </div>
