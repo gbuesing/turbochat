@@ -151,23 +151,22 @@ github.com/turbolinks/turbolinks-classic
 * Drops jQuery dependency
 * Supports mobile apps via native adapters
 
-github.com/turbolinks/turbolinks
+github.com/turbolinks
 
 ---
 
 # Turbolinks adapters for iOS and Android
 
-The native adapters automatically manage a single web view instance across multiple view controllers, giving you native navigation UI with all the client-side performance benefits of Turbolinks.
-
-You can use native code and navigation UI progressively where needed. You're not locked into a custom app development framework.
-
-github.com/turbolinks/turbolinks-ios
-github.com/turbolinks/turbolinks-android
+* Automatically manages a single web view instance across multiple view controllers
+* Enables using native navigation UI and other native features as needed
+* Leverages client-side performance benefits of Turbolinks
+* Doesn't lock you into a custom app development framework
 
 ---
 
 # Turbolinks adapter benefits:
 
+* Do less native app development
 * Leverage your existing web views on native platforms
 * Use HTML/CSS for layouts, instead of complex storyboards etc
 * Use the Safari developer mode and Chrome web tools you love
@@ -191,6 +190,7 @@ github.com/turbolinks/turbolinks-android
 
 * Web app can send messages to the native app via Javascript
 * Native app can call Javascript functions in the web app
+* Native app can intercept link clicks and handle as desired
 
 ---
 
@@ -333,6 +333,7 @@ public void visitProposedToLocationWithAction(
 # Detecting native app server-side
 
 * Customize HTML, JS and CSS that your Rails app serves to native apps
+* Optionally render completely different views for mobile and/or native apps
 
 ---
 
@@ -392,13 +393,14 @@ In views:
 
 # Pros
 
-* Use mostly web tech you know (much easier to build adaptive views in HTML vs. native constraint layouts)
-* Publish apps in the App Store and Play Store
-* Deploy most bug fixes and new features for your web app without going through the store
+* Leverage your existing knowledge and web app code
+* Build adaptive views in HTML vs. native constraint layouts
+* Release bug fixes and new features with a simple deploy
+* Do less native app development
 
 # Cons
 
-* There's no magic, you'll need to learn Xcode and Android Studio
+* There's no magic, you'll need to use Xcode and Android Studio
 * ...and Swift and Java
 
 ---
