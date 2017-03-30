@@ -5,4 +5,4 @@
 * ...and a native Android app
 
 * [Demo](http://turbochatapp.herokuapp.com)
-* [Slides](slides.md) (best viewed with [Marp](https://yhatt.github.io/marp/))
+* [Slides](slides.pdf)
