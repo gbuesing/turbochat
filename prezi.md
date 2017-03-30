@@ -10,10 +10,41 @@
 
 ---
 
-# How We Did It
-## Rails 5
-## Turbolinks
-## ActionCable
+# What we built
+
+* a Rails chat app
+* ...with a native iOS app
+* ...and a native Android app
+
+github.com/gbuesing/turbochat
+
+---
+
+# What we used
+
+* Rails 5
+* ActionCable
+* Turbolinks
+* Turbolinks-iOS adapter
+* Turbolinks-Android adapter
+
+---
+
+# What we didn't use
+
+* PhoneGap
+* Cordova
+* React Native
+* etc
+
+---
+
+# Why choose Turbolinks native adapters?
+
+* No new language, no new frameworks
+* Minimal native adapters written in Swift and Java
+* Simply use your existing web app for most native screens
+* Break out of the web view box when needed
 
 ---
 
@@ -41,11 +72,14 @@ github.com/turbolinks/turbolinks
 
 Jquery plugin to make GitHub's inline code browser faster.
 
+* Replace page elements without a full page reload
+* Use jQuery and pushState() to maintain URLs
+
 github.com/defunkt/jquery-pjax
 
 ---
 
-![Turbolinks](http://turbochat.s3.amazonaws.com/Screenshot%202017-03-21%2019.13.40.PNG)
+![Turbolinks](http://turbochat.s3.amazonaws.com/github-home.png)
 
 ---
 
@@ -113,7 +147,7 @@ github.com/turbolinks/turbolinks-classic
 
 * Ground-up rewrite with the same core idea as Turbolinks Classic
 * Drops jQuery dependency
-* Supports mobile apps
+* Supports mobile apps via native adapters
 
 github.com/turbolinks/turbolinks
 
@@ -139,7 +173,30 @@ github.com/turbolinks/turbolinks-android
 
 ---
 
+# The app: Turbochat
+
+---
+
+![Turbolinks](http://turbochat.s3.amazonaws.com/turbochat-nav.png)
+
+---
+
+# Breaking out of the web view box, i.e. hybrid apps
+
+---
+
 # Communicating with your iOS and Android apps
+
+* Web app can send messages to the native app via Javascript
+* Native app can call Javascript functions in the web app
+
+---
+
+# Example use cases
+
+* Update web view cookie when device geolocation changes
+* Display a native alert
+* Add button to native toolbar
 
 ---
 
@@ -215,46 +272,77 @@ ValueCallback callback = new ValueCallback<String>() {
 
 webView.evaluateJavascript(js, callback);
 ```
----
-
-# iOS catches a link
-
-```
-<a href="helloweather://fanclub">Join the Fan Club</a>
-
-```
-
-```
-func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-    if navigationType == UIWebViewNavigationType.LinkClicked {
-        if request.URL!.absoluteString! == "helloweather://fanclub" {
-            performSegueWithIdentifier("weatherFanclubSegue", sender: self)
-            return false
-      }
-    }
-    return true
-}
-```
 
 ---
 
-# Android catches a link
-```
-<a href="helloweather://fanclub">Join the Fan Club</a>
+# Use native code and navigation UI progressively where needed
+
+* Intercept links and render select views as native
+* Use completely native views for pages that need native speed
+
+---
+
+![Turbolinks](http://turbochat.s3.amazonaws.com/turbochat-nav.png)
+
+---
+
+# Intercept a link and render native (iOS)
 
 ```
+<a href="/rooms">Show me a native view</a>
 ```
-public boolean shouldOverrideUrlLoading(WebView view, String url)
-     if (url == "helloweather://fanclub") {
-        route(fanclub)
+
+```
+// swift
+func session(session: Session, didProposeVisitToURL 
+    URL: NSURL, withAction action: Action) {
+    if URL.path == "/rooms" {
+        // render native view
+    } else {
+        presentVisitableForSession(session, URL: URL, 
+            action: action)
     }
 }
 ```
+
 ---
 
-# Example app
+# Intercept a link and render native (Android)
+```
+<a href="/rooms">Show me a native view</a>
+```
 
-github.com/gbuesing/turbochat
+```
+// java
+@Override
+public void visitProposedToLocationWithAction(
+	String location, String action) {
+    if (location == 'https://myapp.com/rooms') {
+        // render native view
+    } else {
+        Intent intent = new Intent(this, 
+        	MainActivity.class);
+        intent.putExtra(INTENT_URL, location);
+        this.startActivity(intent);
+    }
+}
+```
+---
+
+# Conclusion
+
+---
+
+# Pros
+
+* Use mostly web tech you know (much easier to build adaptive views in HTML vs. native constraint layouts)
+* Publish apps in the App Store and Play Store
+* Deploy most bug fixes and new features for your web app without going through the store
+
+# Cons
+
+* There's no magic, you'll need to learn Xcode and Android Studio
+* ...and Swift and Java
 
 ---
 
@@ -262,20 +350,3 @@ github.com/gbuesing/turbochat
 
 ## Geoff Buesing @gbuesing
 ## Trevor Turk @trevorturk
-
----
-
-# Action Cable
-
-* New in Rails 5.0, use websockets instead of polling
-* Websocket server can be totally separate or a seperate thread
-* Use Rails models etc on the client side
-
----
-
-# Additional reading
-
-* http://char.gd/web/the-web-is-swallowing-the-desktop/
-* https://medium.com/hello-weather/strategies-for-building-a-dual-platform-mobile-app-7ee2db4f1318
-
----
