@@ -1,3 +1,5 @@
+<!-- $theme: default -->
+
 # From `rails new` to App Store
 ## Building iOS and Android Apps with Rails 5 and Turbolinks
 
@@ -35,16 +37,16 @@ github.com/gbuesing/turbochat
 * PhoneGap
 * Cordova
 * React Native
+* RubyMotion
 * etc
 
 ---
 
-# Why choose Turbolinks native adapters?
+# Why build native apps with Turbolinks?
 
-* No new language, no new frameworks
-* Minimal native adapters written in Swift and Java
-* Simply use your existing web app for most native screens
-* Break out of the web view box when needed
+* Simply use Rails to build bulk of app functionality
+* Progressively enhance with native functionality as needed
+* Deliver bug fixes and new features with a simple web app deploy
 
 ---
 
@@ -225,14 +227,13 @@ func userContentController(userContentController:
 
 # Web app sends message to Android
 
-Use JavaScript to send a message from your web app:
 
 ```js
 // js
 window.AndroidNative.log("hi")
 ```
 
-...and the Android app recieves the message with data:
+...Android app exposes "log" handler:
 ```java
 // java
 @JavascriptInterface
@@ -289,7 +290,7 @@ webView.evaluateJavascript(js, callback);
 # Intercept a link and render native (iOS)
 
 ```
-<a href="/rooms">Show me a native view</a>
+<a href="/rooms">Show me rooms</a>
 ```
 
 ```
@@ -309,7 +310,7 @@ func session(session: Session, didProposeVisitToURL
 
 # Intercept a link and render native (Android)
 ```
-<a href="/rooms">Show me a native view</a>
+<a href="/rooms">Show me rooms</a>
 ```
 
 ```
@@ -327,6 +328,62 @@ public void visitProposedToLocationWithAction(
     }
 }
 ```
+---
+
+# Detecting native app server-side
+
+* Customize HTML, JS and CSS that your Rails app serves to native apps
+
+---
+
+# Detecting native app server-side
+
+Set custom User-Agent header in native apps:
+
+```swift
+// iOS
+let config = WKWebViewConfiguration()
+config.applicationNameForUserAgent = "Turbochat iOS"
+```
+
+```java
+// Android
+TurbolinksSession.getDefault(this).getWebView()
+  .getSettings()
+  .setUserAgentString("Turbochat Android");
+```
+
+---
+
+# Detecting native app server-side
+
+Helper method:
+
+```ruby
+class ApplicationController < ActionController::Base
+private
+  def native_app?
+    request.user_agent =~ /Turbochat/
+  end
+  helper_method :native_app?
+end
+```
+---
+
+# Detecting native app server-side
+
+In views:
+
+```
+<% if native_app? %>
+  <%= javascript_include_tag 'native-only-js' %>
+<% end %>
+
+<% unless native_app? %>
+  <nav>Navbar</nav>
+<% end %>
+```
+
 ---
 
 # Conclusion
